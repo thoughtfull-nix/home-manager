@@ -217,6 +217,7 @@ let
     ./programs/qutebrowser.nix
     ./programs/ranger.nix
     ./programs/rbw.nix
+    ./programs/rclone.nix
     ./programs/readline.nix
     ./programs/rio.nix
     ./programs/ripgrep.nix
@@ -245,6 +246,7 @@ let
     ./programs/tealdeer.nix
     ./programs/terminator.nix
     ./programs/termite.nix
+    ./programs/tex-fmt.nix
     ./programs/texlive.nix
     ./programs/thefuck.nix
     ./programs/thunderbird.nix
@@ -268,6 +270,7 @@ let
     ./programs/pywal.nix
     ./programs/rbenv.nix
     ./programs/watson.nix
+    ./programs/waylogout.nix
     ./programs/waybar.nix
     ./programs/wezterm.nix
     ./programs/wlogout.nix
@@ -338,6 +341,7 @@ let
     ./services/kdeconnect.nix
     ./services/keybase.nix
     ./services/keynav.nix
+    ./services/librespot.nix
     ./services/lieer.nix
     ./services/linux-wallpaperengine.nix
     ./services/listenbrainz-mpd.nix

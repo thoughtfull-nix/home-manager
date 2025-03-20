@@ -384,6 +384,7 @@ in import nmtSrc {
     ./modules/programs/starship
     ./modules/programs/taskwarrior
     ./modules/programs/tealdeer
+    ./modules/programs/tex-fmt
     ./modules/programs/texlive
     ./modules/programs/thefuck
     ./modules/programs/thunderbird
@@ -487,6 +488,7 @@ in import nmtSrc {
     ./modules/services/darkman
     ./modules/services/devilspie2
     ./modules/services/dropbox
+    ./modules/services/easyeffects
     ./modules/services/emacs
     ./modules/services/espanso
     ./modules/services/flameshot
