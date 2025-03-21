@@ -121,6 +121,8 @@ let
       "kitty"
       "kubecolor"
       "lapce"
+      "lazydocker"
+      "lazygit"
       "ledger"
       "less"
       "lesspipe"
@@ -142,6 +144,7 @@ let
       "nix-index"
       "nix-your-shell"
       "ollama"
+      "onlyoffice-desktopeditors"
       "openstackclient"
       "papis"
       "pay-respects"
@@ -328,6 +331,7 @@ in import nmtSrc {
     ./modules/programs/kubecolor
     ./modules/programs/lapce
     ./modules/programs/ledger
+    ./modules/programs/lazydocker
     ./modules/programs/less
     ./modules/programs/lesspipe
     ./modules/programs/lf
@@ -353,6 +357,7 @@ in import nmtSrc {
     ./modules/programs/nnn
     ./modules/programs/nushell
     ./modules/programs/oh-my-posh
+    ./modules/programs/onlyoffice
     ./modules/programs/openstackclient
     ./modules/programs/pandoc
     ./modules/programs/papis
@@ -501,10 +506,12 @@ in import nmtSrc {
     ./modules/services/home-manager-auto-upgrade
     ./modules/services/hypridle
     ./modules/services/hyprpaper
+    ./modules/services/hyprpolkitagent
     ./modules/services/imapnotify
     ./modules/services/kanshi
     ./modules/services/lieer
     ./modules/services/linux-wallpaperengine
+    ./modules/services/lxqt-policykit-agent
     ./modules/services/mopidy
     ./modules/services/mpd
     ./modules/services/mpd-mpris
@@ -520,6 +527,7 @@ in import nmtSrc {
     ./modules/services/picom
     ./modules/services/playerctld
     ./modules/services/podman-linux
+    ./modules/services/polkit-gnome
     ./modules/services/polybar
     ./modules/services/recoll
     ./modules/services/redshift-gammastep
