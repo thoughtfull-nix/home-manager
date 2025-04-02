@@ -393,6 +393,7 @@ in import nmtSrc {
     ./modules/programs/spotify-player
     ./modules/programs/ssh
     ./modules/programs/starship
+    ./modules/programs/streamlink
     ./modules/programs/taskwarrior
     ./modules/programs/tealdeer
     ./modules/programs/tex-fmt
@@ -513,6 +514,7 @@ in import nmtSrc {
     ./modules/services/git-sync
     ./modules/services/glance
     ./modules/services/gromit-mpx
+    ./modules/services/home-manager-auto-expire
     ./modules/services/home-manager-auto-upgrade
     ./modules/services/hypridle
     ./modules/services/hyprpaper

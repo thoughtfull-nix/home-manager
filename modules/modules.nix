@@ -246,6 +246,7 @@ let
     ./programs/sqls.nix
     ./programs/ssh.nix
     ./programs/starship.nix
+    ./programs/streamlink.nix
     ./programs/swayimg.nix
     ./programs/swaylock.nix
     ./programs/swayr.nix
@@ -339,6 +340,7 @@ let
     ./services/gpg-agent.nix
     ./services/grobi.nix
     ./services/gromit-mpx.nix
+    ./services/home-manager-auto-expire.nix
     ./services/home-manager-auto-upgrade.nix
     ./services/hound.nix
     ./services/hypridle.nix
