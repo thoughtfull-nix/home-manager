@@ -452,6 +452,7 @@ import nmtSrc {
       ./modules/programs/ssh
       ./modules/programs/starship
       ./modules/programs/streamlink
+      ./modules/programs/superfile
       ./modules/programs/taskwarrior
       ./modules/programs/tealdeer
       ./modules/programs/tex-fmt
@@ -533,6 +534,7 @@ import nmtSrc {
       ./modules/programs/looking-glass-client
       ./modules/programs/mangohud
       ./modules/programs/ncmpcpp-linux
+      ./modules/programs/nh
       ./modules/programs/pqiv
       ./modules/programs/rbw
       ./modules/programs/rofi
