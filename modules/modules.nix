@@ -84,6 +84,7 @@ let
       ./programs/carapace.nix
       ./programs/cava.nix
       ./programs/cavalier.nix
+      ./programs/chawan.nix
       ./programs/chromium.nix
       ./programs/cmus.nix
       ./programs/command-not-found/command-not-found.nix
@@ -446,6 +447,7 @@ let
       ./services/window-managers/i3-sway/i3.nix
       ./services/window-managers/i3-sway/sway.nix
       ./services/window-managers/i3-sway/swaynag.nix
+      ./services/window-managers/labwc/labwc.nix
       ./services/window-managers/river.nix
       ./services/window-managers/spectrwm.nix
       ./services/window-managers/wayfire.nix
