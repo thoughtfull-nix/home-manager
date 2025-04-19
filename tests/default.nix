@@ -131,6 +131,7 @@ let
         "granted"
         "helix"
         "himalaya"
+        "hjson-go"
         "htop"
         "hyfetch"
         "i3status"
@@ -385,6 +386,7 @@ import nmtSrc {
       ./modules/programs/jqp
       ./modules/programs/k9s
       ./modules/programs/kakoune
+      ./modules/programs/keepassxc
       ./modules/programs/khal
       ./modules/programs/khard
       ./modules/programs/kitty
