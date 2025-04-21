@@ -86,6 +86,7 @@ let
       ./programs/cavalier.nix
       ./programs/chawan.nix
       ./programs/chromium.nix
+      ./programs/clock-rs.nix
       ./programs/cmus.nix
       ./programs/command-not-found/command-not-found.nix
       ./programs/comodoro.nix
@@ -277,8 +278,11 @@ let
       ./programs/topgrade.nix
       ./programs/translate-shell.nix
       ./programs/urxvt.nix
+      ./programs/uv.nix
       ./programs/vdirsyncer.nix
+      ./programs/vesktop.nix
       ./programs/vifm.nix
+      ./programs/vim.nix
       ./programs/vim-vint.nix
       ./programs/vim.nix
       ./programs/vinegar.nix
@@ -286,6 +290,7 @@ let
       ./programs/vscode/haskell.nix
       ./programs/pywal.nix
       ./programs/rbenv.nix
+      ./programs/wallust.nix
       ./programs/watson.nix
       ./programs/waylogout.nix
       ./programs/waybar.nix
@@ -410,10 +415,12 @@ let
       ./services/redshift-gammastep/gammastep.nix
       ./services/redshift-gammastep/redshift.nix
       ./services/remmina.nix
+      ./services/restic.nix
       ./services/rsibreak.nix
       ./services/safeeyes.nix
       ./services/screen-locker.nix
       ./services/sctd.nix
+      ./services/shikane.nix
       ./services/signaturepdf.nix
       ./services/skhd.nix
       ./services/snixembed.nix

@@ -353,6 +353,7 @@ import nmtSrc {
       ./modules/programs/btop
       ./modules/programs/carapace
       ./modules/programs/cava
+      ./modules/programs/clock-rs
       ./modules/programs/cmus
       ./modules/programs/comodoro
       ./modules/programs/darcs
@@ -466,9 +467,11 @@ import nmtSrc {
       ./modules/programs/tmux
       ./modules/programs/topgrade
       ./modules/programs/translate-shell
+      ./modules/programs/uv
       ./modules/programs/vifm
       ./modules/programs/vim-vint
       ./modules/programs/vscode
+      ./modules/programs/wallust
       ./modules/programs/watson
       ./modules/programs/wezterm
       ./modules/programs/yazi
@@ -547,6 +550,7 @@ import nmtSrc {
       ./modules/programs/swayr
       ./modules/programs/terminator
       ./modules/programs/tofi
+      ./modules/programs/vesktop
       ./modules/programs/vinegar
       ./modules/programs/waybar
       ./modules/programs/wlogout
@@ -612,7 +616,9 @@ import nmtSrc {
       ./modules/services/recoll
       ./modules/services/redshift-gammastep
       ./modules/services/remmina
+      ./modules/services/restic
       ./modules/services/screen-locker
+      ./modules/services/shikane
       ./modules/services/signaturepdf
       ./modules/services/snixembed
       ./modules/services/swayidle
