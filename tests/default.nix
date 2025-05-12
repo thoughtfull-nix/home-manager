@@ -257,6 +257,7 @@ import nmtSrc {
       ./modules/programs/nix-init
       ./modules/programs/nix-your-shell
       ./modules/programs/nnn
+      ./modules/programs/numbat
       ./modules/programs/nushell
       ./modules/programs/oh-my-posh
       ./modules/programs/onlyoffice
@@ -370,6 +371,7 @@ import nmtSrc {
       ./modules/programs/getmail
       ./modules/programs/gnome-shell
       ./modules/programs/gnome-terminal
+      ./modules/programs/halloy
       ./modules/programs/hexchat
       ./modules/programs/hyprlock
       ./modules/programs/i3bar-river

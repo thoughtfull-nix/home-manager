@@ -127,6 +127,7 @@ let
       ./programs/gpg.nix
       ./programs/gradle.nix
       ./programs/granted.nix
+      ./programs/halloy.nix
       ./programs/havoc.nix
       ./programs/helix.nix
       ./programs/hexchat.nix
@@ -208,6 +209,7 @@ let
       ./programs/nnn.nix
       ./programs/noti.nix
       ./programs/notmuch.nix
+      ./programs/numbat.nix
       ./programs/nushell.nix
       ./programs/obs-studio.nix
       ./programs/octant.nix
