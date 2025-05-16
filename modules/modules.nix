@@ -226,6 +226,7 @@ let
       ./programs/pay-respects.nix
       ./programs/pazi.nix
       ./programs/pet.nix
+      ./programs/pgcli.nix
       ./programs/pidgin.nix
       ./programs/pistol.nix
       ./programs/piston-cli.nix
@@ -490,6 +491,7 @@ let
       ./services/xsuspender.nix
       ./services/yubikey-agent.nix
       ./systemd.nix
+      ./dbus.nix
       ./targets/darwin
       ./targets/generic-linux.nix
       ./wayland.nix

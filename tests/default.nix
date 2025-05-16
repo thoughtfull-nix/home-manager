@@ -266,6 +266,7 @@ import nmtSrc {
       ./modules/programs/papis
       ./modules/programs/pay-respects
       ./modules/programs/pet
+      ./modules/programs/pgcli
       ./modules/programs/pistol
       ./modules/programs/pls
       ./modules/programs/poetry
@@ -330,6 +331,7 @@ import nmtSrc {
       ./modules/launchd
       ./modules/programs/aerospace
       ./modules/programs/element-desktop/darwin.nix
+      ./modules/services/borgmatic-darwin
       ./modules/services/emacs-darwin
       ./modules/services/espanso-darwin
       ./modules/services/git-sync-darwin
@@ -502,6 +504,7 @@ import nmtSrc {
       ./modules/services/yubikey-agent
       ./modules/systemd
       ./modules/targets-linux
+      ./modules/dbus
     ]
   );
 }
