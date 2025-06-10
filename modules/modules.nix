@@ -92,6 +92,7 @@ let
       ./programs/chromium.nix
       ./programs/clock-rs.nix
       ./programs/cmus.nix
+      ./programs/codex.nix
       ./programs/command-not-found/command-not-found.nix
       ./programs/comodoro.nix
       ./programs/darcs.nix
@@ -188,6 +189,7 @@ let
       ./programs/mangohud.nix
       ./programs/matplotlib.nix
       ./programs/mbsync.nix
+      ./programs/mc.nix
       ./programs/mcfly.nix
       ./programs/meli.nix
       ./programs/mercurial.nix
@@ -211,6 +213,7 @@ let
       ./programs/newsboat.nix
       ./programs/nh.nix
       ./programs/nheko.nix
+      ./programs/niriswitcher.nix
       ./programs/nix-index.nix
       ./programs/nix-init.nix
       ./programs/nix-your-shell.nix
