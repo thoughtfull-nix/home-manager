@@ -15,7 +15,7 @@
 {
   description = "Tests of Home Manager for Nix";
 
-  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
 
   outputs =
     { nixpkgs, ... }:
@@ -51,8 +51,32 @@
               renameTestPkg = n: lib.nameValuePair "integration-test-${n}";
             in
             lib.mapAttrs' renameTestPkg tests;
+
+          testAllNoBig =
+            let
+              tests = import ./. {
+                inherit pkgs;
+                enableBig = false;
+              };
+            in
+            lib.nameValuePair "test-all-no-big" tests.build.all;
+
+          testAllNoBigIfd =
+            let
+              tests = import ./. {
+                inherit pkgs;
+                enableBig = false;
+                enableLegacyIfd = true;
+              };
+            in
+            lib.nameValuePair "test-all-no-big-ifd" tests.build.all;
         in
-        testPackages // integrationTestPackages
+        testPackages
+        // integrationTestPackages
+        // (lib.listToAttrs [
+          testAllNoBig
+          testAllNoBigIfd
+        ])
       );
     };
 }
