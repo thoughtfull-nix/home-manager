@@ -192,6 +192,7 @@ import nmtSrc {
       ./modules/programs/darcs
       ./modules/programs/dircolors
       ./modules/programs/direnv
+      ./modules/programs/docker-cli
       ./modules/programs/earthly
       ./modules/programs/emacs
       ./modules/programs/eza
@@ -413,6 +414,7 @@ import nmtSrc {
       ./modules/programs/wofi
       ./modules/programs/xmobar
       ./modules/programs/yambar
+      ./modules/programs/yarn
       ./modules/programs/yt-dlp
       ./modules/services/activitywatch
       ./modules/services/avizo

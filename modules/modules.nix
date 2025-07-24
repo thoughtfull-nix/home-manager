@@ -95,6 +95,7 @@ let
       ./programs/direnv.nix
       ./programs/discocss.nix
       ./programs/distrobox.nix
+      ./programs/docker-cli.nix
       ./programs/earthly.nix
       ./programs/eclipse.nix
       ./programs/element-desktop.nix
@@ -318,6 +319,7 @@ let
       ./programs/xmobar.nix
       ./programs/xplr.nix
       ./programs/yambar.nix
+      ./programs/yarn/default.nix
       ./programs/yazi.nix
       ./programs/yt-dlp.nix
       ./programs/z-lua.nix
