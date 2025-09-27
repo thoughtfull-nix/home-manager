@@ -293,7 +293,10 @@ let
   syncthingArgs = defaultSyncthingArgs ++ cfg.extraOptions;
 in
 {
-  meta.maintainers = [ lib.maintainers.rycee ];
+  meta.maintainers = [
+    lib.maintainers.rycee
+    lib.hm.maintainers.aionescu
+  ];
 
   options = {
     services.syncthing = {
@@ -865,6 +868,8 @@ in
       assertions = [
         (lib.hm.assertions.assertPlatform "services.syncthing.tray" pkgs lib.platforms.linux)
       ];
+
+      home.packages = [ cfg.tray.package ];
 
       systemd.user.services = {
         ${cfg.tray.package.pname} = {
