@@ -35,21 +35,23 @@ for opt in "${disabled_opts[@]}"; do
 done
 unset opt disabled_opts
 
+source @zsh-history-substring-search@/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 
+# Bind search up keys
+search_up_keys=(
+  '^[[A' '\eOA'
+)
+ for key in "${search_up_keys[@]}"; do
+   bindkey "$key" history-substring-search-up
+ done
+ unset key search_up_keys
 
-yt() {
-    if [ "$#" -eq 0 ] || [ "$#" -gt 2 ]; then
-        echo "Usage: yt [-t | --timestamps] youtube-link"
-        echo "Use the '-t' flag to get the transcript with timestamps."
-        return 1
-    fi
-
-    transcript_flag="--transcript"
-    if [ "$1" = "-t" ] || [ "$1" = "--timestamps" ]; then
-        transcript_flag="--transcript-with-timestamps"
-        shift
-    fi
-    local video_link="$1"
-    fabric -y "$video_link" $transcript_flag
-}
+# Bind search down keys
+search_down_keys=(
+  '^[[B'
+)
+ for key in "${search_down_keys[@]}"; do
+   bindkey "$key" history-substring-search-down
+ done
+ unset key search_down_keys
 
