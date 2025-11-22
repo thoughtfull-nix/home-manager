@@ -48,7 +48,6 @@ in
   meta.maintainers = with lib.maintainers; [
     bobvanderlinden
     liyangau
-    lucasew
     n8henrie
     phanirithvij
   ];
@@ -206,7 +205,7 @@ in
       enable = true;
       config = {
         ProgramArguments = [
-          "${cfg.package}/bin/espanso"
+          "${cfg.package}/Applications/Espanso.app/Contents/MacOS/espanso"
           "launcher"
         ];
         EnvironmentVariables.PATH = "${cfg.package}/bin:/usr/bin:/bin:/usr/sbin:/sbin";
