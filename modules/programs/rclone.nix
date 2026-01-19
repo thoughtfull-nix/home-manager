@@ -113,6 +113,10 @@ in
                       options = {
                         enable = lib.mkEnableOption "this mount";
 
+                        autoMount = lib.mkEnableOption "automatic mounting" // {
+                          default = true;
+                        };
+
                         logLevel = lib.mkOption {
                           type = lib.types.nullOr (
                             lib.types.enum [
@@ -356,8 +360,8 @@ in
                 mount-path = name;
                 mount = value;
               in
-              [
-                (lib.nameValuePair "rclone-mount:${replaceSlashes mount-path}@${remote-name}" {
+              lib.optional mount.enable (
+                lib.nameValuePair "rclone-mount:${replaceSlashes mount-path}@${remote-name}" {
                   Unit = {
                     Description = "Rclone FUSE daemon for ${remote-name}:${mount-path}";
                   };
@@ -381,9 +385,9 @@ in
                     Restart = "on-failure";
                   };
 
-                  Install.WantedBy = [ "default.target" ];
-                })
-              ]
+                  Install.WantedBy = lib.optional mount.autoMount "default.target";
+                }
+              )
             ) (lib.attrsToList remote.mounts)
           )
           (
