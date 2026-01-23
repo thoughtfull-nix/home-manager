@@ -505,16 +505,26 @@ in
           advisedLua = foldedLuaBlock "home-manager generated: plugin config advised in nixpkgs" (
             lib.concatStringsSep "\n" vimPackageInfo.pluginAdvisedLua
           );
+
+          generatedLuaPath = lib.concatMapStringsSep ";" luaPackages.getLuaPath resolvedExtraLuaPackages;
+          generatedLuaCPath = lib.concatMapStringsSep ";" luaPackages.getLuaCPath resolvedExtraLuaPackages;
         in
 
         lib.mkMerge [
+          (lib.mkIf (
+            resolvedExtraLuaPackages != [ ]
+          ) ''package.path = "${generatedLuaPath}".. ";" .. package.path'')
+          (lib.mkIf (
+            resolvedExtraLuaPackages != [ ]
+          ) ''package.cpath = "${generatedLuaCPath}".. ";" .. package.cpath'')
           (lib.mkIf (advisedLua != null) (lib.mkOrder 510 advisedLua))
           (lib.mkIf (wrappedNeovim'.initRc != "") (
             lib.mkBefore "vim.cmd [[source ${pkgs.writeText "nvim-init-home-manager.vim" wrappedNeovim'.initRc}]]"
           ))
-          (lib.mkIf (lib.hasAttr "lua" cfg.generatedConfigs) (
+          (lib.mkIf (lib.hasAttr "lua" cfg.generatedConfigs && cfg.generatedConfigs.lua != "") (
             lib.mkAfter (foldedLuaBlock "user-associated plugin config" cfg.generatedConfigs.lua)
           ))
+
         ];
 
       # link the packpath in expected folder so that even unwrapped neovim can pick
