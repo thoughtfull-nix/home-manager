@@ -14,6 +14,7 @@ let
     ;
 
   cfg = config.programs.opencode;
+  webCfg = cfg.web;
 
   jsonFormat = pkgs.formats.json { };
 
@@ -85,6 +86,35 @@ in
 
         Note, `"$schema": "https://opencode.ai/config.json"` is automatically added to the configuration.
       '';
+    };
+
+    web = {
+      enable = lib.mkEnableOption "opencode web service";
+
+      extraArgs = mkOption {
+        type = lib.types.listOf lib.types.str;
+        default = [ ];
+        example = [
+          "--hostname"
+          "0.0.0.0"
+          "--port"
+          "4096"
+          "--mdns"
+          "--cors"
+          "https://example.com"
+          "--cors"
+          "http://localhost:3000"
+          "--print-logs"
+          "--log-level"
+          "DEBUG"
+        ];
+        description = ''
+          Extra arguments to pass to the opencode web command.
+
+          These arguments override the "server" options defined in the configuration file.
+          See <https://opencode.ai/docs/web/#config-file> for available options.
+        '';
+      };
     };
 
     rules = lib.mkOption {
@@ -200,7 +230,13 @@ in
     };
 
     skills = lib.mkOption {
-      type = lib.types.either (lib.types.attrsOf (lib.types.either lib.types.lines lib.types.path)) lib.types.path;
+      type = lib.types.either (lib.types.attrsOf (
+        lib.types.oneOf [
+          lib.types.lines
+          lib.types.path
+          lib.types.str
+        ]
+      )) lib.types.path;
       default = { };
       description = ''
         Custom agent skills for opencode.
@@ -214,6 +250,9 @@ in
         - Inline content as a string (creates `opencode/skill/<name>/SKILL.md`)
         - A path to a file (creates `opencode/skill/<name>/SKILL.md`)
         - A path to a directory (creates `opencode/skill/<name>/` with all files)
+
+        This also accepts Nix store paths (e.g., source from a package), allowing you to
+        reference subdirectories within a package source.
 
         If a path is used, it is expected to contain one folder per skill name, each
         containing a {file}`SKILL.md`. The directory is symlinked to
@@ -238,6 +277,9 @@ in
 
           # A skill can also be a directory containing SKILL.md and other files.
           data-analysis = ./skills/data-analysis;
+
+          # A skill can also be a subdirectory within a package source (store path)
+          beads = "''${pkgs.beads.src}/claude-plugin/skills/beads";
         }
       '';
     };
@@ -413,7 +455,11 @@ in
     )
     // lib.mapAttrs' (
       name: content:
-      if lib.isPath content && lib.pathIsDirectory content then
+      if
+        (lib.isPath content && lib.pathIsDirectory content)
+        || (builtins.isString content && lib.hasPrefix builtins.storeDir content)
+
+      then
         lib.nameValuePair "opencode/skill/${name}" {
           source = content;
           recursive = true;
@@ -443,5 +489,43 @@ in
         )
       ) cfg.themes
     );
+
+    systemd.user.services = mkIf webCfg.enable {
+      opencode-web = {
+        Unit = {
+          Description = "OpenCode Web Service";
+          After = [ "network.target" ];
+        };
+
+        Service = {
+          ExecStart = "${lib.getExe cfg.package} web ${lib.escapeShellArgs webCfg.extraArgs}";
+          Restart = "always";
+          RestartSec = 5;
+        };
+
+        Install = {
+          WantedBy = [ "default.target" ];
+        };
+      };
+    };
+
+    launchd.agents = mkIf webCfg.enable {
+      opencode-web = {
+        enable = true;
+        config = {
+          ProgramArguments = [
+            (lib.getExe cfg.package)
+            "web"
+          ]
+          ++ webCfg.extraArgs;
+          KeepAlive = {
+            Crashed = true;
+            SuccessfulExit = false;
+          };
+          ProcessType = "Background";
+          RunAtLoad = true;
+        };
+      };
+    };
   };
 }

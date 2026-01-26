@@ -16,6 +16,7 @@
   opencode-mixed-content = ./mixed-content.nix;
   opencode-skills-inline = ./skills-inline.nix;
   opencode-skills-path = ./skills-path.nix;
+  opencode-skills-store-path = ./skills-store-path.nix;
   opencode-skills-directory = ./skills-directory.nix;
   opencode-skills-bulk-directory = ./skills-bulk-directory.nix;
   opencode-themes-inline = ./themes-inline.nix;
@@ -23,4 +24,5 @@
   opencode-themes-bulk-directory = ./themes-bulk-directory.nix;
   opencode-mcp-integration = ./mcp-integration.nix;
   opencode-mcp-integration-with-override = ./mcp-integration-with-override.nix;
+  opencode-web-service = ./web-service.nix;
 }
